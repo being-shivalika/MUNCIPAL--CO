@@ -6,15 +6,17 @@ import App from "./App.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import CitizenDashboard from "./pages/CitizenDashboard.jsx";
 import Login from "./components/Login.jsx";
+import MainHero from "./pages/MainHero.jsx";
 
 const router = createBrowserRouter([
-  { path: "/login", element: <Login /> },
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <CitizenDashboard /> },
+      { path: "/", element: <MainHero /> },
+      { path: "/citizen", element: <CitizenDashboard /> },
       { path: "/admin", element: <AdminDashboard /> },
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);

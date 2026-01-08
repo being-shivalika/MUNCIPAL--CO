@@ -1,38 +1,38 @@
 import React from "react";
 
-const Posts = () => {
+const Posts = ({ title, description, buttonText, linkText, onBtnClick }) => {
   return (
-    <>
-      <div className="[--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] w-4/5 h-auto rounded-2xl bg-white [box-shadow:var(--shadow)] max-w-75 m-auto mt-10 ">
-        <div className="flex flex-col items-center justify-between pt-9 px-6 pb-6 relative">
-          <h5 className="text-sm font-semibold mb-2 text-left mr-auto text-zinc-700">
-            Your privacy is important to us
-          </h5>
+    <div className="w-full h-full rounded-2xl bg-amber-50 shadow-md hover:shadow-lg transition-shadow border border-amber-100 flex flex-col">
+      <div className="flex flex-col flex-1 pt-9 px-6 pb-20 relative">
+        <h5 className="text-sm font-bold mb-2 text-zinc-700 uppercase tracking-wide">
+          {title || "Service Title"}
+        </h5>
 
-          <p className="w-full mb-4 text-sm text-justify text-indigo-950">
-            We process your personal information to measure and improve our
-            sites and services, to assist our campaigns and to provide
-            personalised content.
-            <br />
-            For more information see our
-            <br />
-            <a className="mb-2 text-sm cursor-pointer font-semibold transition-colors hover:text-[#634647] underline underline-offset-2">
-              Privacy Policy
-            </a>
-          </p>
+        <p className="w-full mb-4 text-sm text-indigo-950 leading-relaxed">
+          {description || "Service description will appear here."}
+        </p>
 
-          <button className="mb-2 text-sm mr-auto text-zinc-600 cursor-pointer font-semibold transition-colors hover:text-[#634647] hover:underline underline-offset-2">
-            More Options
+        {linkText && (
+          <a className="text-sm cursor-pointer font-semibold text-amber-800 hover:text-amber-600 underline underline-offset-2 mb-4 block">
+            {linkText}
+          </a>
+        )}
+
+        <div className="mt-auto flex justify-between items-center absolute bottom-6 left-6 right-6">
+          <button className="text-sm text-zinc-600 font-semibold hover:text-amber-800 hover:underline underline-offset-2">
+            Details
           </button>
+
           <button
-            className="absolute font-semibold right-6 bottom-6 cursor-pointer py-2 px-8 w-max break-keep text-sm rounded-lg transition-colors text-[#ffffff] hover:text-[#ffffff] bg-blue-500 hover:bg-blue-600 mt-<10>"
+            onClick={onBtnClick}
+            className="font-semibold cursor-pointer py-2 px-6 text-sm rounded-lg transition-colors text-white bg-indigo-900 hover:bg-blue-700 shadow-sm"
             type="button"
           >
-            Accept
+            {buttonText || "Apply"}
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

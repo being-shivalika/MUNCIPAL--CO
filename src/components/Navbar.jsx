@@ -1,106 +1,85 @@
 import React from "react";
+import { useLocation, Link } from "react-router-dom";
+import { Menu, Bell, User } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ onToggleSidebar }) => {
+  const location = useLocation();
+
+  const isAdminPage = location.pathname.startsWith("/admin");
+  const isCitizenPage = location.pathname.startsWith("/citizen");
+  const MainHero = location.pathname === "/";
+
   return (
-    <>
-      <div className="navbar bg-blue-300 shadow-sm">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle hover:bg-blue-950 "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />{" "}
-              </svg>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-blue-950 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>COMMISSIONER'S MESSAGE</a>
-              </li>
-              <li>
-                <a>ADMINISTRATIVE OFFICERS</a>
-              </li>
-              <li>
-                <a>ONLINE SERVICES</a>
-              </li>
-              <li>
-                <a>ONLINE COMPLAINT</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="navbar-center">
-          <a className="text-indigo-950 font-bold text-xl font-serif">
-            Muncipal Corporation Panchkula
-          </a>
-        </div>
-        <div className="navbar-end">
-          <input
-            type="text"
-            className="bg-white rounded-md hover:border-e-blue-500 border-2 text-black content-center"
-            placeholder="Search"
-          />
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />{" "}
-            </svg>
-          </button>
-          <button className="btn btn-ghost btn-circle">
-            <div className="indicator">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />{" "}
-              </svg>
-            </div>
-          </button>
-          <a href="/login">
-            <button className="w-auto text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-600">
-              Sign In
-            </button>
-          </a>
+    <nav className="navbar bg-indigo-900/20 text-white shadow-md px-4 py-2 sticky top-0 z-100">
+      <div className="navbar-start flex items-center">
+        <button
+          onClick={onToggleSidebar}
+          className="btn btn-ghost btn-circle mr-2 hover:bg-indigo-800 text-white"
+        >
+          <Menu size={24} />
+        </button>
+
+        <div className="ml-2">
+          <Link to="/" className="flex flex-col">
+            <span className="text-lg md:text-xl font-bold font-serif leading-none">
+              Municipal Corporation
+            </span>
+            <span className="text-[10px] uppercase tracking-widest text-indigo-300 hidden sm:block">
+              Civic Services Portal
+            </span>
+          </Link>
         </div>
       </div>
-    </>
+
+      <div className="navbar-end gap-2 md:gap-4">
+        {!isAdminPage && (
+          <div className="hidden sm:flex items-center gap-4 mr-2">
+            <Link
+              to="/"
+              className="text-sm font-semibold hover:text-amber-300 transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              to="/complaint"
+              className="text-sm font-semibold hover:text-amber-300 transition-colors"
+            >
+              Complaints
+            </Link>
+          </div>
+        )}
+
+        <div className="flex items-center gap-2">
+          {(isAdminPage || isCitizenPage) && (
+            <button className="btn btn-ghost btn-circle btn-sm text-white">
+              <div className="indicator">
+                <Bell size={20} />
+                <span className="badge badge-xs badge-error indicator-item"></span>
+              </div>
+            </button>
+          )}
+
+          {isAdminPage ? (
+            <div className="flex items-center gap-2 ml-2 border-l border-indigo-700 pl-4">
+              <span className="text-xs font-bold hidden md:block text-amber-400">
+                ADMIN
+              </span>
+              <div className="avatar placeholder">
+                <div className="bg-indigo-700 text-neutral-content rounded-full w-8">
+                  <User size={18} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm md:btn-md bg-amber-500 hover:bg-amber-600 border-none text-white font-bold px-6 shadow-lg">
+                Sign In
+              </button>
+            </Link>
+          )}
+        </div>
+      </div>
+    </nav>
   );
 };
 
