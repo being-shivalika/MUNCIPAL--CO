@@ -8,6 +8,7 @@ import CitizenDashboard from "./pages/CitizenDashboard.jsx";
 import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
+  { path: "/login", element: <Login /> },
   {
     path: "/",
     element: <App />,
