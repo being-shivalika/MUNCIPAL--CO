@@ -41,7 +41,7 @@ const Navbar = ({ onToggleSidebar }) => {
               Home
             </Link>
             <Link
-              to="/complaint"
+              to="/citizen"
               className="text-sm font-semibold hover:text-amber-300 transition-colors"
             >
               Complaints
@@ -51,12 +51,14 @@ const Navbar = ({ onToggleSidebar }) => {
 
         <div className="flex items-center gap-2">
           {(isAdminPage || isCitizenPage) && (
-            <button className="btn btn-ghost btn-circle btn-sm text-white">
-              <div className="indicator">
-                <Bell size={20} />
-                <span className="badge badge-xs badge-error indicator-item"></span>
-              </div>
-            </button>
+            <a href="/Track">
+              <button className="btn btn-ghost btn-circle btn-sm text-white">
+                <div className="indicator">
+                  <Bell size={20} />
+                  <span className="badge badge-xs badge-error indicator-item"></span>
+                </div>
+              </button>
+            </a>
           )}
 
           {isAdminPage ? (
@@ -65,14 +67,14 @@ const Navbar = ({ onToggleSidebar }) => {
                 ADMIN
               </span>
               <div className="avatar placeholder">
-                <div className="bg-indigo-700 text-neutral-content rounded-full w-8">
-                  <User size={18} />
+                <div className="bg-indigo-700 text-neutral-content content-center pl-1.5 rounded-full w-8">
+                  <User size={20} />
                 </div>
               </div>
             </div>
           ) : (
             <Link to="/login">
-              <button className="btn btn-sm md:btn-md bg-amber-500 hover:bg-amber-600 border-none text-white font-bold px-6 shadow-lg">
+              <button className="btn btn-sm md:btn-md bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 shadow-lg rounded-xl hover:border-amber-50 hover:shadow-black">
                 Sign In
               </button>
             </Link>

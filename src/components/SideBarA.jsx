@@ -22,7 +22,7 @@ export default function SideBarA({
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
       `}
       >
-        <div className="h-full flex flex-col border-r border-gray-200">
+        <div className="h-full flex flex-col border-r border-gray-200 z-2">
           <div className="p-6 border-b flex justify-between items-center">
             <h2 className="text-xl font-bold text-indigo-900">{title}</h2>
             <button className="md:hidden" onClick={() => setIsOpen(false)}>

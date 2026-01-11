@@ -7,6 +7,7 @@ import AdminDashboard from "./pages/AdminDashboard.jsx";
 import CitizenDashboard from "./pages/CitizenDashboard.jsx";
 import Login from "./components/Login.jsx";
 import MainHero from "./pages/MainHero.jsx";
+import TrackRequest from "./pages/TrackRequest.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "/citizen", element: <CitizenDashboard /> },
       { path: "/admin", element: <AdminDashboard /> },
       { path: "/login", element: <Login /> },
+      { path: "/Track", element: <TrackRequest /> },
     ],
   },
 ]);
