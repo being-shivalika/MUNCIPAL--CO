@@ -10,7 +10,7 @@ const Navbar = ({ onToggleSidebar }) => {
   const MainHero = location.pathname === "/";
 
   return (
-    <nav className="navbar bg-indigo-900/20 text-white shadow-md px-4 py-2 sticky top-0 z-100">
+    <nav className="navbar bg-blue-950 text-white shadow-md px-4 py-2 sticky top-0 z-100">
       <div className="navbar-start flex items-center">
         <button
           onClick={onToggleSidebar}

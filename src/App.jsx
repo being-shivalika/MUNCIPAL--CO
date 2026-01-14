@@ -1,49 +1,73 @@
-import { useState } from "react";
-import Navbar from "./components/Navbar";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
-function App() {
+const App = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const [allRequests, setAllRequests] = useState([
-    {
-      id: 1,
-      subject: "Street Light",
-      message: "Light not working in Sector 5",
-    },
-    {
-      id: 2,
-      subject: "Porthole",
-      message: "Big porthole causing traffic in Sector 14",
-    },
-    {
-      id: 3,
-      subject: "water leakage",
-      message: "Water leakage and pipline broke in Sector 10",
-    },
-  ]);
+  // Persistence for Complaints
+  const [allRequests, setAllRequests] = useState(() => {
+    const saved = localStorage.getItem("mc_requests");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+  // Persistence for Admin Services (Posts)
+  const [services, setServices] = useState(() => {
+    const savedServices = localStorage.getItem("mc_services");
+    return savedServices
+      ? JSON.parse(savedServices)
+      : [
+          {
+            id: 1,
+            title: "Property Tax",
+            description: "Pay your annual property tax online.",
+            buttonText: "Manage",
+          },
+          {
+            id: 2,
+            title: "Building Plans",
+            description: "Submit and track building plans.",
+            buttonText: "Review",
+          },
+        ];
+  });
 
-  const handleNewRequest = (newReq) => {
-    setAllRequests((prev) => [newReq, ...prev]);
+  useEffect(() => {
+    localStorage.setItem("mc_requests", JSON.stringify(allRequests));
+    localStorage.setItem("mc_services", JSON.stringify(services));
+  }, [allRequests, services]);
+
+  const handleNewRequest = (newRequest) => {
+    setAllRequests([
+      { ...newRequest, id: Date.now(), status: "Pending" },
+      ...allRequests,
+    ]);
+  };
+
+  const addService = (newService) => {
+    setServices([{ ...newService, id: Date.now() }, ...services]);
+  };
+
+  const deleteService = (id) => {
+    setServices(services.filter((s) => s.id !== id));
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar onToggleSidebar={toggleSidebar} />
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <Outlet
-          context={{
-            isSidebarOpen,
-            setSidebarOpen,
-            allRequests,
-            handleNewRequest,
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <Navbar onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
+      <Outlet
+        context={{
+          isSidebarOpen,
+          setSidebarOpen,
+          allRequests,
+          handleNewRequest,
+          services,
+          addService,
+          deleteService,
+        }}
+      />
     </div>
   );
-}
+};
 
 export default App;

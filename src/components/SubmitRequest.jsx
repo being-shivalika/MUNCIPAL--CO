@@ -2,20 +2,16 @@ import React, { useState } from "react";
 import { Send } from "lucide-react";
 
 const SubmitRequest = ({ onSubmitRequest }) => {
-  const [formData, setFormData] = useState({
-    subject: "",
-    message: "",
-    citizenName: "Guest User",
-  });
+  const [formData, setFormData] = useState({ subject: "", message: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmitRequest({
-      id: Date.now(),
       subject: formData.subject,
       message: formData.message,
     });
     setFormData({ subject: "", message: "" });
+    alert("Complaint Submitted and Saved!");
   };
 
   return (
