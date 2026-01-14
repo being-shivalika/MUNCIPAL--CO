@@ -27,7 +27,7 @@ const MainHero = () => {
           title="Citizen Portal"
         />
         <div className="flex-1 bg-white min-h-screen pb-20">
-          <div className="mx-4 md:mx-10 mt-5 rounded-2xl p-6 md:p-10 bg-[url(image.avif)] bg-cover bg-center min-h-50 md:min-h-75 flex flex-col justify-end shadow-inner hover:transform hover:scale-95 transition-transform">
+          <div className="mx-4 md:mx-10 mt-5 rounded-2xl p-6 md:p-10 bg-[url(./assets/image.avif)] bg-cover bg-center min-h-50 md:min-h-75 flex flex-col justify-end shadow-inner hover:transform hover:scale-95 transition-transform">
             <h1 className="text-blue-50 font-extrabold text-3xl md:text-5xl lg:text-6xl text-shadow-lg/50 tracking-wide">
               Welcome to
             </h1>
@@ -45,7 +45,6 @@ const MainHero = () => {
 
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {/* These cards are now dynamically generated from Admin input */}
               {services.map((service) => (
                 <Posts
                   key={service.id}
@@ -56,7 +55,7 @@ const MainHero = () => {
               ))}
             </div>
           </div>
-          <div className="flex justify-center pt-15">
+          <div className="flex justify-center pt-15 p-5">
             <Notifications requests={allRequests} />
           </div>
         </div>

@@ -76,3 +76,6 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+{
+  /*Admin page uses cfreatepost and posts component*/
+}
