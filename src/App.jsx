@@ -5,13 +5,11 @@ import Navbar from "./components/Navbar";
 const App = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  // Persistence for Complaints
   const [allRequests, setAllRequests] = useState(() => {
     const saved = localStorage.getItem("mc_requests");
     return saved ? JSON.parse(saved) : [];
   });
 
-  // Persistence for Admin Services (Posts)
   const [services, setServices] = useState(() => {
     const savedServices = localStorage.getItem("mc_services");
     return savedServices
