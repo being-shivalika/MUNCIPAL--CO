@@ -11,7 +11,7 @@ const CitizenDashboard = () => {
 
   const citizenLinks = [
     { icon: User, label: "My Profile", href: "#" },
-    { icon: ClipboardList, label: "My Complaints", href: "/Track" },
+    { icon: ClipboardList, label: "My Complaints", href: "/track" },
     { icon: MessageSquare, label: "Feedback", href: "#" },
   ];
 

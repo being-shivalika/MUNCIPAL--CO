@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
   const adminLinks = [
     { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
-    { icon: Users, label: "Manage User Requests", href: "/Track" },
+    { icon: Users, label: "Manage User Requests", href: "/track" },
     { icon: FileText, label: "Services List", href: "#" },
     { icon: Mail, label: "Inquiries", href: "#" },
     { icon: Settings, label: "Back to Home", href: "/" },

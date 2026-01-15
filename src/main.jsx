@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       { path: "/citizen", element: <CitizenDashboard /> },
       { path: "/admin", element: <AdminDashboard /> },
       { path: "/login", element: <Login /> },
-      { path: "/Track", element: <TrackRequest /> },
+      { path: "/track", element: <TrackRequest /> },
     ],
   },
 ]);

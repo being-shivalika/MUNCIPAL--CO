@@ -14,7 +14,7 @@ const MainHero = () => {
     { icon: ClipboardList, label: "Complaints", href: "/citizen" },
     { icon: Gavel, label: "New Policies", href: "#" },
     { icon: FileText, label: "Services List", href: "#" },
-    { icon: Search, label: "Track Status", href: "/Track" },
+    { icon: Search, label: "Track Status", href: "/track" },
   ];
 
   return (
