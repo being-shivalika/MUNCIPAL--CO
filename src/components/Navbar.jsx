@@ -51,7 +51,7 @@ const Navbar = ({ onToggleSidebar }) => {
 
         <div className="flex items-center gap-2">
           {(isAdminPage || isCitizenPage) && (
-            <a href="/Track">
+            <a href="/track">
               <button className="btn btn-ghost btn-circle btn-sm text-white">
                 <div className="indicator">
                   <Bell size={20} />
