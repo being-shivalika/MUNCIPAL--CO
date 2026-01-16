@@ -11,10 +11,10 @@ const MainHero = () => {
     useOutletContext();
 
   const mainLinks = [
-    { icon: ClipboardList, label: "Complaints", href: "/citizen" },
-    { icon: Gavel, label: "New Policies", href: "#" },
-    { icon: FileText, label: "Services List", href: "#" },
-    { icon: Search, label: "Track Status", href: "/track" },
+    { icon: ClipboardList, label: "Complaints", path: "/citizen" },
+    { icon: Gavel, label: "New Policies", path: "#" },
+    { icon: FileText, label: "Services List", path: "#" },
+    { icon: Search, label: "Track Status", path: "/track" },
   ];
 
   return (

@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function SideBarA({
   isOpen,
@@ -33,13 +34,13 @@ export default function SideBarA({
             <ul className="space-y-2">
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.path}
                     className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition-colors"
                   >
                     <item.icon size={20} />
                     <span className="font-medium">{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

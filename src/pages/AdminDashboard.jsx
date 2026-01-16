@@ -25,11 +25,11 @@ const AdminDashboard = () => {
   } = useOutletContext();
 
   const adminLinks = [
-    { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
-    { icon: Users, label: "Manage User Requests", href: "/track" },
-    { icon: FileText, label: "Services List", href: "#" },
-    { icon: Mail, label: "Inquiries", href: "#" },
-    { icon: Settings, label: "Back to Home", href: "/" },
+    { icon: LayoutDashboard, label: "Dashboard", path: "/admin" },
+    { icon: Users, label: "Manage User Requests", path: "/track" },
+    { icon: FileText, label: "Services List", path: "#" },
+    { icon: Mail, label: "Inquiries", path: "#" },
+    { icon: Settings, label: "Back to Home", path: "/" },
   ];
 
   return (

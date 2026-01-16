@@ -10,9 +10,9 @@ const CitizenDashboard = () => {
     useOutletContext();
 
   const citizenLinks = [
-    { icon: User, label: "My Profile", href: "#" },
-    { icon: ClipboardList, label: "My Complaints", href: "/track" },
-    { icon: MessageSquare, label: "Feedback", href: "#" },
+    { icon: User, label: "My Profile", path: "#" },
+    { icon: ClipboardList, label: "My Complaints", path: "/track" },
+    { icon: MessageSquare, label: "Feedback", path: "#" },
   ];
 
   return (
