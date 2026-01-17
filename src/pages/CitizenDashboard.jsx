@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import SideBarA from "../components/SideBarA";
 import SubmitRequest from "../components/SubmitRequest";
 import Footer from "../components/Footer";
-import { User, ClipboardList, MessageSquare } from "lucide-react";
+import { User, ClipboardList, MessageSquare, Settings } from "lucide-react";
 
 const CitizenDashboard = () => {
   const { isSidebarOpen, setSidebarOpen, handleNewRequest } =
@@ -13,6 +13,7 @@ const CitizenDashboard = () => {
     { icon: User, label: "My Profile", path: "#" },
     { icon: ClipboardList, label: "My Complaints", path: "/track" },
     { icon: MessageSquare, label: "Feedback", path: "#" },
+    { icon: Settings, label: "Back to Home", path: "/" },
   ];
 
   return (
