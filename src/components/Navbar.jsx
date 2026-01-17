@@ -51,14 +51,14 @@ const Navbar = ({ onToggleSidebar }) => {
 
         <div className="flex items-center gap-2">
           {(isAdminPage || isCitizenPage) && (
-            <a href="/track">
+            <Link to="/track">
               <button className="btn btn-ghost btn-circle btn-sm text-white">
                 <div className="indicator">
                   <Bell size={20} />
                   <span className="badge badge-xs badge-error indicator-item"></span>
                 </div>
               </button>
-            </a>
+            </Link>
           )}
 
           {isAdminPage ? (

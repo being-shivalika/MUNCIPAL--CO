@@ -26,9 +26,6 @@ export default function SideBarA({
         <div className="h-full flex flex-col border-r border-gray-200 z-2">
           <div className="p-6 border-b flex justify-between items-center">
             <h2 className="text-xl font-bold text-indigo-900">{title}</h2>
-            <button className="md:hidden" onClick={() => setIsOpen(false)}>
-              <X size={24} />
-            </button>
           </div>
           <nav className="flex-1 p-4 overflow-y-auto">
             <ul className="space-y-2">
